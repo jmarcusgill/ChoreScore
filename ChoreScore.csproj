@@ -227,8 +227,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201712091940503_choreRewardUsertable.cs" />
     <Compile Include="Migrations\201712091940503_choreRewardUsertable.Designer.cs">
       <DependentUpon>201712091940503_choreRewardUsertable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712130131133_deltedphonenumber.cs" />
+    <Compile Include="Migrations\201712130131133_deltedphonenumber.Designer.cs">
+      <DependentUpon>201712130131133_deltedphonenumber.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -345,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712091940503_choreRewardUsertable.resx">
       <DependentUpon>201712091940503_choreRewardUsertable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712130131133_deltedphonenumber.resx">
+      <DependentUpon>201712130131133_deltedphonenumber.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

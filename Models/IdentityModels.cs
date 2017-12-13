@@ -14,12 +14,12 @@ namespace ChoreScore.Models
         
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Phonenumber { get; set; }
+       
         public float CurrentPoints { get; set; }
         public bool isActive { get; set; }
 
-        public virtual List<Chore> Chore { get; set; }
-        public virtual List<Reward> Reward { get; set; }
+        public virtual List<Chore> Chores { get; set; }
+        public virtual List<Reward> Rewards { get; set; }
 
         
 
@@ -40,8 +40,8 @@ namespace ChoreScore.Models
         {
         }
 
-        public virtual DbSet<Chore> Chore { get; set; }
-        public virtual DbSet<Reward> Reward { get; set; }
+        public virtual DbSet<Chore> Chores { get; set; }
+        public virtual DbSet<Reward> Rewards { get; set; }
 
 
         
