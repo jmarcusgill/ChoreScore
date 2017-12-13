@@ -236,10 +236,16 @@
     <Compile Include="Migrations\201712091607448_IdentitySetup.Designer.cs">
       <DependentUpon>201712091607448_IdentitySetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712091940503_choreRewardUsertable.cs" />
+    <Compile Include="Migrations\201712091940503_choreRewardUsertable.Designer.cs">
+      <DependentUpon>201712091940503_choreRewardUsertable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Chore.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Reward.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -336,6 +342,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712091607448_IdentitySetup.resx">
       <DependentUpon>201712091607448_IdentitySetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712091940503_choreRewardUsertable.resx">
+      <DependentUpon>201712091940503_choreRewardUsertable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
