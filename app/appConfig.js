@@ -9,7 +9,13 @@
         {
             templateUrl: "/app/views/login.html",
             controller: "loginController"
+        })
+        .when("/Chores/add",
+        {
+            templateUrl: "/app/views/addChore.html",
+            controller: "addChoreController"
         });
+       
 }]);
 
 

@@ -7,17 +7,19 @@
 <body>
     <h1>Available Chores: </h1>
     <div class="container">
+       <div ng-repeat="chore in chores">
        <div class="clearfix" ng-if="$index % 4 == 0"></div>
         <div class="col-xs-3">
             <div class="panel">
-                <div class="panel-heading">{{CHORE TITTLE GOES HERE}}</div>
-                <div class="panel-body">{{DESCRIPTION GOES HERE}}</div>
-                <div class="panel-footer">POINTS: {{POINTS GO HERE}}</div>
+                <div class="panel-heading">{{chore.ChoreName}}</div>
+                <div class="panel-body">{{chore.StartDate}}</div>
+                <div class="panel-footer">POINTS: {{chore.PointsAssigned}}</div>
                 <div>
                     <button class="btn btn-warning">DO CHORE!</button>
                 </div>
             </div>
         </div>
+       </div>
        
     </div>
    

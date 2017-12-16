@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body ng-app="ChoreScore">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -20,7 +20,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Add Chore", "Index", "Home", new { area = "" }, null)</li>
+                    <li><a ng-href="#!/Chores/add">Add Chore</a></li>
                     <li>@Html.ActionLink("Rewards", "Index", "Help", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Logout", "", "", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content" ng-app="ChoreScore">
+    <div class="container body-content" >
         @RenderBody()
         <hr />
         <footer>
