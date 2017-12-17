@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ChoreScore.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ChoreScore.Controllers
 {
@@ -18,9 +19,15 @@ namespace ChoreScore.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Chores
-        public IQueryable<Chore> GetChores()
+        public IEnumerable<Chore> GetChores()
         {
-            return db.Chores;
+            return db.Chores.ToList<Chore>();
+           
+
+           
+          
+
+           
         }
 
         // GET: api/Chores/5
@@ -52,7 +59,10 @@ namespace ChoreScore.Controllers
 
             var choreToEdit = db.Chores.Find(id);
             choreToEdit.ChoreName = chore.ChoreName;
-            //...
+            choreToEdit.PointsAssigned = chore.PointsAssigned;
+            choreToEdit.StartDate = chore.StartDate;
+            choreToEdit.CompletedDate = chore.CompletedDate;
+       
             choreToEdit.user = db.Users.Find(chore.UserId);
 
             try
@@ -74,7 +84,7 @@ namespace ChoreScore.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Chores
+        // POST: api/Chores/add
         [ResponseType(typeof(Chore))]
         public async Task<IHttpActionResult> PostChore(Chore chore)
         {
@@ -82,6 +92,10 @@ namespace ChoreScore.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+           
+
+            
 
             db.Chores.Add(chore);
             await db.SaveChangesAsync();
