@@ -93,6 +93,10 @@ namespace ChoreScore.Controllers
                 return BadRequest(ModelState);
             }
 
+           
+
+            
+
             db.Chores.Add(chore);
             await db.SaveChangesAsync();
 
