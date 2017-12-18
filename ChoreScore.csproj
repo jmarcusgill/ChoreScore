@@ -244,6 +244,10 @@
     <Compile Include="Migrations\201712130131133_deltedphonenumber.Designer.cs">
       <DependentUpon>201712130131133_deltedphonenumber.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712181950368_datetimenullissue.cs" />
+    <Compile Include="Migrations\201712181950368_datetimenullissue.Designer.cs">
+      <DependentUpon>201712181950368_datetimenullissue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -354,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712130131133_deltedphonenumber.resx">
       <DependentUpon>201712130131133_deltedphonenumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712181950368_datetimenullissue.resx">
+      <DependentUpon>201712181950368_datetimenullissue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
