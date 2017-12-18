@@ -28,6 +28,6 @@
                 $scope.error = result.data.error_description;
                 $scope.inProgress = false;
             });
-    }
+    };
 }
 ]);

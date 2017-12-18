@@ -12,7 +12,7 @@ namespace ChoreScore.Models
         public float PointsAssigned { get; set; }
         public bool isAssigned { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime CompletedDate { get; set; }
+        public DateTime? CompletedDate { get; set; }
 
         public virtual ApplicationUser user { get; set; }
     }
