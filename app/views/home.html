@@ -7,7 +7,7 @@
 <body>
     <h1>Available Chores: </h1>
     <div class="container">
-       <div ng-repeat="chore in chores">
+       <div ng-repeat="chore in chores | filter:{isAssigned:false} | filter:{searchText} | orderBy:'StartDate'">
        <div class="clearfix" ng-if="$index % 4 == 0"></div>
         <div class="col-xs-3">
             <div class="panel panel-primary">
@@ -16,17 +16,34 @@
                 </div>
                 <div class="panel-body">
                     <p>Start Date: {{chore.StartDate}}</p>
-                    <p>Completed: {{chore.CompletedDate}}</p>
                     <p><div class="well well-sm">Points: {{chore.PointsAssigned}}</div></p>
                     <button type="button" ng-click="doChore(chore.Id)" class="btn btn-warning">DO CHORE</button>
                     <button type="button" ng-click="deleteChore(chore.Id)" class="btn btn-danger">DELETE</button>
                 </div>
-                
             </div>
-          
         </div>
        </div>
      </div>
+    <h1>Completed Chores: </h1>
+    <div class="container">
+        <div ng-repeat="chore in chores | filter:{isAssigned:true}">
+            <div class="clearfix" ng-if="$index % 4 == 0"></div>
+            <div class="col-xs-3">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{chore.ChoreName}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Start Date: {{chore.StartDate}}</p>
+                        <p>Completed: {{chore.CompletedDate}}</p>
+                        <p><div class="well well-sm">Points: {{chore.PointsAssigned}}</div></p>
+                        <button type="button" ng-show="isComplete" ng-click="doChore(chore.Id)" class="btn btn-warning">DO CHORE</button>
+                        <button type="button" ng-click="deleteChore(chore.Id)" class="btn btn-danger">DELETE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
    
 </body>
 </html>
