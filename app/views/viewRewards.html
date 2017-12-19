@@ -15,7 +15,7 @@
                         <h3 class="panel-title">{{reward.RewardTitle}}</h3>
                     </div>
                     <div class="panel-body">
-                        <p>Description: {{reward.Description}}</p>
+                        <p>{{reward.Description}}</p>
                         <p><div class="well well-sm">Points: {{reward.PointValue}}</div></p>
                         <button type="button" ng-click="redeemReward(reward.Id)" class="btn btn-warning">REDEEM</button>
                         <button type="button" ng-click="deleteReward(reward.Id)" class="btn btn-danger">DELETE</button>

@@ -29,6 +29,11 @@
         {
             templateUrl: "/app/views/viewRewards.html",
             controller: "viewRewardController"
+        })
+        .when("/Rewards/add",
+        {
+            templateUrl: "/app/views/addReward.html",
+            controller: "addRewardController"
         });
        
 }]);
