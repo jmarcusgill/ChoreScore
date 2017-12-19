@@ -229,6 +229,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RewardsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -247,6 +248,10 @@
     <Compile Include="Migrations\201712181950368_datetimenullissue.cs" />
     <Compile Include="Migrations\201712181950368_datetimenullissue.Designer.cs">
       <DependentUpon>201712181950368_datetimenullissue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712192022121_addedRewardTitle.cs" />
+    <Compile Include="Migrations\201712192022121_addedRewardTitle.Designer.cs">
+      <DependentUpon>201712192022121_addedRewardTitle.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -361,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712181950368_datetimenullissue.resx">
       <DependentUpon>201712181950368_datetimenullissue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712192022121_addedRewardTitle.resx">
+      <DependentUpon>201712192022121_addedRewardTitle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
