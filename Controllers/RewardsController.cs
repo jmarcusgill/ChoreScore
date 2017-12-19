@@ -92,7 +92,7 @@ namespace ChoreScore.Controllers
         [Route("{id}"), HttpDelete]
         public async Task<IHttpActionResult> DeleteReward(int id)
         {
-            Reward reward = await db.Rewards.FindAsync(id);
+            var reward = db.Rewards.Where(x => x.Id.Equals(id)).FirstOrDefault();
             if (reward == null)
             {
                 return NotFound();

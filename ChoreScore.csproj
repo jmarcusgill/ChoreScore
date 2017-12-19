@@ -272,10 +272,12 @@
     <Content Include="app\app.js" />
     <Content Include="app\appConfig.js" />
     <Content Include="app\controllers\addChoreController.js" />
+    <Content Include="app\controllers\addRewardController.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\viewRewards.js" />
     <Content Include="app\views\addChore.html" />
+    <Content Include="app\views\addReward.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\viewRewards.html" />

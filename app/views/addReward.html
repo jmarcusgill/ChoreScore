@@ -1,0 +1,16 @@
+﻿<form>
+    <div class="form-group">
+        <label for="newChoreTitle">Reward Title: </label>
+        <input type="text" class="form-control" id="newRewardTitle" ng-model="newReward.RewardTitle" placeholder="Name a chore..">
+    </div>
+    <div class="form-group">
+        <label for="newRewardDesc">Reward Description: </label>
+        <textarea ng-model="newReward.Description" class="form-control" rows="3" placeholder="Describe the chore"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="newRewardPoints">Points Assigned: </label>
+        <input type="number" class="form-control" id="newRewardPoints" ng-model="newReward.PointValue" placeholder="0">
+    </div>
+    
+    <button type="submit" ng-click="createReward()" class="btn btn-success">Create</button>
+</form>

@@ -34,6 +34,16 @@
 
     }
 
+    $scope.deleteReward = function (rewardId) {
+        console.log("inside deleteReward id: ", rewardId)
+        $http.delete(`api/rewards/${rewardId}`)
+            .then(function (result) {
+                getRewards();
+            }).catch(function (error) {
+                console.log(error)
+            });
+    }
+
 
 
 
