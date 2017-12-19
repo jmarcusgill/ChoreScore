@@ -18,8 +18,8 @@
                     <p>Start Date: {{chore.StartDate}}</p>
                     <p>Completed: {{chore.CompletedDate}}</p>
                     <p><div class="well well-sm">Points: {{chore.PointsAssigned}}</div></p>
-                    <button type="button" class="btn btn-warning">DO CHORE</button>
-                    <button type="button" class="btn btn-danger">DELETE</button>
+                    <button type="button" ng-click="doChore(chore.Id)" class="btn btn-warning">DO CHORE</button>
+                    <button type="button" ng-click="deleteChore(chore.Id)" class="btn btn-danger">DELETE</button>
                 </div>
                 
             </div>

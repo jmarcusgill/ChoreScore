@@ -1,6 +1,5 @@
 ﻿app.controller("addChoreController", ["$scope", "$http", "$location", function ($scope, $http, $location ) {
     $scope.newChore = {
-        CompletedDate: null,
         isAssigned: false,
         PointsAssigned: 100
 
@@ -22,5 +21,7 @@
             })
             .catch(error => console.log(error));
     }
+
+   
 
 }]);
