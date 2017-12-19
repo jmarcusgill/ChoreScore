@@ -19,6 +19,11 @@
         {
             templateUrl: "/app/views/home.html",
             controller: "homeController"
+        })
+        .when("/Rewards",
+        {
+            templateUrl: "/app/views/viewRewards.html",
+            controller: "viewRewardController"
         });
        
 }]);

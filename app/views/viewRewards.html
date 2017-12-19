@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Available Rewards: </h1>
+    <div class="container">
+        <div ng-repeat="reward in rewards | filter:{isRedeemed:false} | filter:{searchText} | orderBy:'StartDate'">
+            <div class="clearfix" ng-if="$index % 4 == 0"></div>
+            <div class="col-xs-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{reward.RewardTitle}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Description: {{reward.Description}}</p>
+                        <p><div class="well well-sm">Points: {{reward.PointValue}}</div></p>
+                        <button type="button" ng-click="redeemReward(reward.Id)" class="btn btn-warning">REDEEM</button>
+                        <button type="button" ng-click="deleteReward(reward.Id)" class="btn btn-danger">DELETE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>Redeemed Rewards: </h1>
+    <div class="container">
+        <div ng-repeat="reward in rewards | filter:{isRedeemed:true}">
+            <div class="clearfix" ng-if="$index % 4 == 0"></div>
+            <div class="col-xs-3">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{reward.RewardTitle}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Description: {{reward.Description}}</p>
+                        <p><div class="well well-sm">Points: {{reward.PointValue}}</div></p>
+                        <button type="button" ng-show="isComplete" ng-click="redeemReward(reward.Id)" class="btn btn-warning">REDEEM</button>
+                        <button type="button" ng-click="deleteReward(reward.Id)" class="btn btn-danger">DELETE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
