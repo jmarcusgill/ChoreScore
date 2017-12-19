@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ChoreScore.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ChoreScore.Controllers
 {
@@ -18,11 +19,11 @@ namespace ChoreScore.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/Rewards
+        // GET: api/rewards
         [Route(""), HttpGet]
-        public IQueryable<Reward> GetRewards()
+        public IEnumerable<Reward> GetRewards()
         {
-            return db.Rewards;
+            return db.Rewards.ToList<Reward>();
         }
 
         // GET: api/Rewards/5
@@ -42,19 +43,14 @@ namespace ChoreScore.Controllers
         // PUT: api/Rewards/{id}
         [ResponseType(typeof(void))]
         [Route("{id}/redeem"), HttpPut]
-        public async Task<IHttpActionResult> PutReward(int id, Reward reward)
+        public async Task<IHttpActionResult> PutReward(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            var rewardToEdit = db.Rewards.Find(id);
 
-            if (id != reward.Id)
-            {
-                return BadRequest();
-            }
+            rewardToEdit.isRedeemed = true;
 
-            db.Entry(reward).State = EntityState.Modified;
+            rewardToEdit.User = db.Users.Find(User.Identity.GetUserId());
+
 
             try
             {

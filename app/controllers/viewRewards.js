@@ -2,7 +2,7 @@
     $scope.rewards = [];
 
     var getRewards = function () {
-        $http.get("api/Rewards")
+        $http.get("api/rewards")
             .then(function (result) {
                 var dataResults = result.data;
                 var listOfRewards = [];
@@ -21,6 +21,18 @@
     };
 
     getRewards();
+
+    $scope.redeemReward = function (rewardId) {
+        console.log("redeemReward click", rewardId);
+        $http.put(`api/rewards/${rewardId}/redeem`)
+            .then(function (result) {
+                console.log("result of redeemRewards: ", result)
+                getRewards();
+            }).catch(function (error) {
+                console.log(error)
+            });
+
+    }
 
 
 
