@@ -24,6 +24,11 @@
         {
             templateUrl: "/app/views/viewRewards.html",
             controller: "viewRewardController"
+        })
+        .when("/Rewards/{id}/redeem",
+        {
+            templateUrl: "/app/views/viewRewards.html",
+            controller: "viewRewardController"
         });
        
 }]);
