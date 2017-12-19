@@ -14,6 +14,11 @@
         {
             templateUrl: "/app/views/addChore.html",
             controller: "addChoreController"
+        })
+        .when("/Chores/remove/{id}",
+        {
+            templateUrl: "/app/views/home.html",
+            controller: "homeController"
         });
        
 }]);

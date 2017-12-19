@@ -8,6 +8,10 @@
         <textarea class="form-control" rows="3" placeholder="Describe the chore"></textarea>
     </div>
     <div class="form-group">
+        <label for="newChorePoints">Points Assigned: </label>
+        <input type="number" class="form-control" id="newChorePoints" ng-model="newChore.PointsAssigned" placeholder="25, 50, 75, 100">
+    </div>
+    <div class="form-group">
         <label for="StartDate">Start Date: </label>
         <input type="date" ng-model="newChore.StartDate" class="form-control" uib-datepicker-popup is-open="isOpened2" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
         <span class="input-group-btn">

@@ -14,24 +14,21 @@ using Microsoft.AspNet.Identity;
 
 namespace ChoreScore.Controllers
 {
+    [RoutePrefix("api/chores")]
     public class ChoresController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Chores
+        [Route(""), HttpGet]
         public IEnumerable<Chore> GetChores()
         {
             return db.Chores.ToList<Chore>();
-           
-
-           
-          
-
-           
         }
 
         // GET: api/Chores/5
         [ResponseType(typeof(Chore))]
+        [Route("{id}"),HttpGet]
         public async Task<IHttpActionResult> GetChore(int id)
         {
             Chore chore = await db.Chores.FindAsync(id);
@@ -43,27 +40,17 @@ namespace ChoreScore.Controllers
             return Ok(chore);
         }
 
-        // PUT: api/Chores/5
+        // PUT: api/Chores/{id}
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutChore(int id, ChoreViewModel chore)
+        [Route("{id}/dochore"),HttpPut]
+        public async Task<IHttpActionResult> DoChore(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != chore.Id)
-            {
-                return BadRequest();
-            }
-
             var choreToEdit = db.Chores.Find(id);
-            choreToEdit.ChoreName = chore.ChoreName;
-            choreToEdit.PointsAssigned = chore.PointsAssigned;
-            choreToEdit.StartDate = chore.StartDate;
-            choreToEdit.CompletedDate = chore.CompletedDate;
+
+            choreToEdit.CompletedDate = DateTime.Now;
+            choreToEdit.isAssigned = true;
        
-            choreToEdit.user = db.Users.Find(chore.UserId);
+            choreToEdit.user = db.Users.Find(User.Identity.GetUserId());
 
             try
             {
@@ -84,30 +71,28 @@ namespace ChoreScore.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Chores/add
+        // POST: api/Chores/
         [ResponseType(typeof(Chore))]
-        public async Task<IHttpActionResult> PostChore(Chore chore)
+        [Route("add"),HttpPost]
+        public async Task<HttpResponseMessage> PostChore(Chore chore)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return Request.CreateResponse(HttpStatusCode.OK, chore);
             }
-
-           
-
-            
 
             db.Chores.Add(chore);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = chore.Id }, chore);
+            return Request.CreateResponse(HttpStatusCode.Created,chore);
         }
 
-        // DELETE: api/Chores/5
+        // DELETE: api/Chores/remove/{id}
         [ResponseType(typeof(Chore))]
+        [Route("{id}"),HttpDelete]
         public async Task<IHttpActionResult> DeleteChore(int id)
         {
-            Chore chore = await db.Chores.FindAsync(id);
+            var chore = db.Chores.Where(x => x.Id.Equals(id)).FirstOrDefault();
             if (chore == null)
             {
                 return NotFound();
