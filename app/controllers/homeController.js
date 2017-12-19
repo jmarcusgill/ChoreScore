@@ -1,5 +1,7 @@
 ﻿app.controller("homeController", ["$scope", "$http", function ($scope, $http) {
     $scope.chores = [];
+    $scope.isCompleted = true;
+
 
     var getChores = function () {
         $http.get("api/Chores")
@@ -39,6 +41,7 @@
         $http.put(`api/Chores/${choreId}/dochore`)
             .then(function (result) {
                 console.log("result", result)
+                getChores();
             }).catch(function (error) {
                 console.log(error)
             });

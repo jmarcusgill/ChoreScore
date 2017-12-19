@@ -1,7 +1,6 @@
 ﻿app.controller("addChoreController", ["$scope", "$http", "$location", function ($scope, $http, $location ) {
     $scope.newChore = {
         isAssigned: false,
-        PointsAssigned: 100
 
     };
 
