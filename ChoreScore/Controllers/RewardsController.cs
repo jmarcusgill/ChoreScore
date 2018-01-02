@@ -51,6 +51,8 @@ namespace ChoreScore.Controllers
 
             rewardToEdit.User = db.Users.Find(User.Identity.GetUserId());
 
+            rewardToEdit.User.CurrentPoints -= rewardToEdit.PointValue;
+
 
             try
             {

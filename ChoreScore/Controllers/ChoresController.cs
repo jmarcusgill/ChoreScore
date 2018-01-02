@@ -51,7 +51,15 @@ namespace ChoreScore.Controllers
             choreToEdit.isAssigned = true;
        
             choreToEdit.user = db.Users.Find(User.Identity.GetUserId());
-            
+
+            choreToEdit.user.CurrentPoints += choreToEdit.PointsAssigned;
+
+
+
+
+
+
+
 
             try
             {
