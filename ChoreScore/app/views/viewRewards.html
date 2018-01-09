@@ -5,6 +5,44 @@
     <title></title>
 </head>
 <body>
+
+    <!-- Button trigger modal -->
+    <button type="button" ng-click="clearForm" class="btn btn-success btn-lg pull-right" data-toggle="modal" data-target="#myModal">
+        Add New Reward
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="myForm">
+                        <div class="form-group">
+                            <label for="newChoreTitle">Chore Title: </label>
+                            <input type="text" class="form-control" id="newRewardTitle" ng-model="newReward.RewardTitle" placeholder="Name a reward...">
+                        </div>
+                        <div class="form-group">
+                            <label for="newRewardDesc">Reward Description: </label>
+                            <textarea class="form-control" rows="3" ng-model="newReward.Description" placeholder="Describe the reward"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="newChorePoints">Points Assigned: </label>
+                            <input type="number" class="form-control" id="newRewardPoints" ng-model="newReward.PointValue" placeholder="0">
+                        </div>
+                        <button type="submit" ng-click="createReward()" class="btn btn-success">Create</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="clearForm()" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <h1>Available Rewards: </h1>
     <div class="container">
         <div ng-repeat="reward in rewards | filter:{isRedeemed:false} | filter:{searchText} | orderBy:'StartDate'">
@@ -34,7 +72,7 @@
                         <h3 class="panel-title">{{reward.RewardTitle}}</h3>
                     </div>
                     <div class="panel-body">
-                        <p>Description: {{reward.Description}}</p>
+                        <p>{{reward.Description}}</p>
                         <p><div class="well well-sm">Points: {{reward.PointValue}}</div></p>
                         <button type="button" ng-show="isComplete" ng-click="redeemReward(reward.Id)" class="btn btn-warning">REDEEM</button>
                         <button type="button" ng-click="deleteReward(reward.Id)" class="btn btn-danger">DELETE</button>

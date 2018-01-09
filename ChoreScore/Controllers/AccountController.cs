@@ -60,6 +60,7 @@ namespace ChoreScore.Controllers
 
             return new UserInfoViewModel
             {
+                Points = _userManager.FindById(User.Identity.GetUserId()).CurrentPoints,
                 Email = User.Identity.GetUserName(),
                 HasRegistered = externalLogin == null,
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null

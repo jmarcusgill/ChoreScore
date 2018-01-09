@@ -1,6 +1,28 @@
 ﻿app.controller("viewRewardController", ["$scope", "$http", function ($scope, $http) {
     $scope.rewards = [];
 
+    $scope.newReward = {
+        isRedeemed: false
+
+    };
+
+    $scope.createReward = function () {
+        console.log("inside createReward")
+        $http.post("api/rewards/add",
+            {
+                RewardTitle: $scope.newReward.RewardTitle,
+                Description: $scope.newReward.Description,
+                isRedeemed: $scope.newReward.isRedeemed,
+                PointValue: $scope.newReward.PointValue
+            })
+            .then(function (result) {
+                console.log(result);
+                getRewards();
+                
+            })
+            .catch(error => console.log(error));
+    }
+
     var getRewards = function () {
         $http.get("api/rewards")
             .then(function (result) {
